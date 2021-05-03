@@ -3,38 +3,33 @@ import 'package:flutter/material.dart';
 class MusikScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double w = 190;
+    double h = 165;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 198, 42, 42),
         title: Text("Home"),
       ),
+      drawer: Drawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                kachel(180,180, "Intervals"),
-                kachel(180,180, "Chord"),
-              ],
+            _reihe(
+              kachel(w, h, "Intervals"),
+              kachel(w, h, "Chord"),
             ),
-            Row(
-              children: [
-                kachel(180,180, "Note Values"),
-                kachel(180,180, "Rests"),
-              ],
+            _reihe(
+              kachel(w, h, "Intervals"),
+              kachel(w, h, "Chord"),
             ),
-            Row(
-              children: [
-                kachel(180,180, "Circle of Fifth"),
-                kachel(180,180, "Scales"),
-              ],
+            _reihe(
+              kachel(w, h, "Intervals"),
+              kachel(w, h, "Chord"),
             ),
-            Row(
-              children: [
-                kachel(180,180, "Intervals"),
-                kachel(180,180, "Chord"),
-              ],
+            _reihe(
+              kachel(w, h, "Intervals"),
+              kachel(w, h, "Chord"),
             ),
           ],
         ),
@@ -42,9 +37,19 @@ class MusikScreen extends StatelessWidget {
     );
   }
 
+  Widget _reihe(Widget e1, Widget e2) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        e1,
+        e2,
+      ],
+    );
+  }
+
   Widget kachel(double w, double h, String text) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      padding: const EdgeInsets.symmetric(vertical: 2.0),
       child: Container(
         color: Color.fromARGB(255, 239, 84, 81),
         width: w,
